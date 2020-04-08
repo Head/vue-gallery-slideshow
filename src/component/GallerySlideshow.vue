@@ -53,12 +53,12 @@
           {{ imgIndex + 1 }} / {{ images.length }}
         </div>
         <div
-          v-if="images"
+          v-if="thumbs"
           class="vgs__gallery__container"
           :style="{ transform: 'translate(' + galleryXPos + 'px, 0)' }"
         >
           <img
-            v-for="(img, i) in images"
+            v-for="(img, i) in thumbs"
             :key="i"
             class="vgs__gallery__container__img"
             :src="typeof img === 'string' ? img : img.url"
@@ -76,6 +76,10 @@
 export default {
   props: {
     images : {
+      type: Array,
+      required: true
+    },
+    thumbs : {
       type: Array,
       required: true
     },
